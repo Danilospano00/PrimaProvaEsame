@@ -1,3 +1,4 @@
 #* @implicitly included *#
 #* @vtlvariable name="WebPath" type="org.corso.utils.Path.Web" *#
 #* @vtlvariable name="Utils" type="org.corso.utils.CustomUtils.Utils" *#
+#* @vtlvariable name="msg" type="org.corso.utils.MessageBundle" *#
