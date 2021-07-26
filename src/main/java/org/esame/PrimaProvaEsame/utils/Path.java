@@ -5,9 +5,9 @@ public class Path {
 
     public static class Web {
         public static final String BASE_INDEX = "/";
-        public static final String INDEX = "/index/";
-        public static final String LOGIN = "/login/";
-        public static final String REGISTER = "/register/";
+        public static final String INDEX = "/velocity/index/";
+        public static final String LOGIN = "/velocity/login/";
+        public static final String REGISTER = "/velocity/register/";
         public static final String LOGOUT = "/logout/";
         public static final String REMINDERS = "/reminders/";
         public static final String YOUR_REMINDERS = "/reminders/yours/";
