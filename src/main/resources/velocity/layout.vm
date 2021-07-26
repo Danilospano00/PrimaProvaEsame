@@ -1,7 +1,7 @@
 #macro(mainLayout)
 <html>
 <head>
-    <title>$msg.get("COMMON_TITLE")#if($isTestEnv) - (TEST)#end</title>
+    <title>#if($isTestEnv) - (TEST)#end</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
@@ -46,7 +46,7 @@
     </div>
 </main>
 <footer>
-    $msg.get("COMMON_FOOTER_TEXT") (ver. $appVersion) #if($isHeroku) <div>- Heroku</div> #end
+    (ver. $appVersion) #if($isHeroku) <div>- Heroku</div> #end
 </footer>
 </body>
 </html>
