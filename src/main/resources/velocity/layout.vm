@@ -1,0 +1,53 @@
+#macro(mainLayout)
+<html>
+<head>
+    <title>$msg.get("COMMON_TITLE")#if($isTestEnv) - (TEST)#end</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="/js/main.js" language="JavaScript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="$WebPath.getINDEX()" id="home"><img id="logo" src="/img/logo.png" alt="Spark Library"></a>
+        <ul id="chooseLanguage">
+            <form>
+                <li>
+                    <a href="$WebPath.getREGISTER()">Registrati</a>
+                </li>
+            </form>
+        </ul>
+        <ul id="menu">
+            #if($currentUser)
+                <li>
+                    <form method="post" action="$WebPath.getLOGOUT()">
+                        <button id="logout">LOGOUT</button>
+                    </form>
+                </li>
+            #else
+                <li><a href="$WebPath.getLOGIN()">LOGIN</a></li>
+            #end
+        </ul>
+    </nav>
+</header>
+<main>
+    #if($isTestEnv)
+        <div style="text-align: right; font-weight: bold; color: red;">AMBIENTE DI PROVA</div>
+    #end
+    #if($currentUser)
+        <input type="hidden" value="$currentUser.username" id="currentUsername"/>
+        <input type="hidden" value="$jwtToken" id="jwtToken"/>
+        <div>Utente: $currentUser.lastNameAndFirstName</div>
+    #end
+    <div id="content">
+        $bodyContent
+    </div>
+</main>
+<footer>
+    $msg.get("COMMON_FOOTER_TEXT") (ver. $appVersion) #if($isHeroku) <div>- Heroku</div> #end
+</footer>
+</body>
+</html>
+#end
