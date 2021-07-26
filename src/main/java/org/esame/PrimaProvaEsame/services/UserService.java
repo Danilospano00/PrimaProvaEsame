@@ -35,10 +35,12 @@ public class UserService implements IUserService {
     }
 
     // TODO
-    public UserService() {
+    private UserService() {
         // utente defult per test interfaccia web
         // this.getUtentiRegistrati().add(new User("Remo", "Candeli", "remo", "test",
         // "remo.candeli@gmail.com"));
+
+        //qui devo aggiungere la lista di getUtentiRegistrati
     }
 
     public static String getDefaultUserAdminEmail() {
