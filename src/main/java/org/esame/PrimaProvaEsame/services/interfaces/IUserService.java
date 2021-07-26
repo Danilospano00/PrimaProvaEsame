@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface IUserService {
     void registraUtente(UserDTO nuovoUtente)throws ErroreUtenteGiaEsistenteException;
-    User cercaUtentePerUsername(String username)throws ErroreUtenteInesistenteException;
+    User cercaUtentePerEmail(String email)throws ErroreUtenteInesistenteException;
     User userLogin(String username, String password);
     List<User> getAllRegisteredUsers();
 }
