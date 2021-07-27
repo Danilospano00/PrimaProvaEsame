@@ -1,6 +1,6 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
-<form id="registerForm" action="/velocity/register/register" method="post">
+<form id="registerForm" action="/register/" method="post">
 
     <p>Registrazione Utente</p>
     <label>Nome</label>

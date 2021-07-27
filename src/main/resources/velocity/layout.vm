@@ -1,11 +1,10 @@
 #macro(mainLayout)
 <html>
 <head>
-    <title>#if($isTestEnv) - (TEST)#end</title>
+    <title>$msg.get("COMMON_TITLE")</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-    <script src="/js/main.js" language="JavaScript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
