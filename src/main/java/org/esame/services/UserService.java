@@ -9,7 +9,6 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Compiti: - consentire la registrazione/iscrizione di un utente - consentire
@@ -27,6 +26,8 @@ public class UserService implements IUserService {
     private static UserService userService;
     private static String defaultUserAdminEmail;
 
+    private List<User> listaUtentiRegistrati;
+
     public static UserService getInstance() {
         if (userService == null) {
             userService = new UserService();
@@ -41,6 +42,7 @@ public class UserService implements IUserService {
         // "remo.candeli@gmail.com"));
 
         //qui devo aggiungere la lista di getUtentiRegistrati
+        listaUtentiRegistrati = new ArrayList<>();
     }
 
     public static String getDefaultUserAdminEmail() {
@@ -71,7 +73,7 @@ public class UserService implements IUserService {
     }
 
     // TODO
-    // è giusto usare user o è meglio usare userDto
+    // registra un utente e lo aggiunge alla lista
     public void registraUtente(UserDTO nuovoUtente) throws ErroreUtenteGiaEsistenteException {
         User userNuovo = new User(nuovoUtente.getFirstName(), nuovoUtente.getLastName(), nuovoUtente.getUsername(),
                 nuovoUtente.getPassword(), nuovoUtente.getEmail());
@@ -83,6 +85,7 @@ public class UserService implements IUserService {
     }
 
     // TODO
+    //annulla la registrazione di un utente e lo rimuove dalla lista
     public void annullaRegistrazioneUtente(UserDTO utenteDaCancellare) throws ErroreUtenteInesistenteException {
         User user = cercaUtentePerEmail(utenteDaCancellare.getEmail());
         getUtentiRegistrati().remove(user);
@@ -90,6 +93,7 @@ public class UserService implements IUserService {
     }
 
     // TODO
+    //ritorna un utente già inserito nella lista cercando per username e password
     public User cercaUtentePerUsernameEPassword(String username, String password) throws ErroreUtenteInesistenteException {
         for(User user : getUtentiRegistrati()){
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
@@ -100,6 +104,7 @@ public class UserService implements IUserService {
     }
 
     @Override
+    //ritorna un utente già inserito nella lista cercando per email
     public User cercaUtentePerEmail(String email)throws ErroreUtenteInesistenteException {
         for(User user : getUtentiRegistrati()){
             if(user.getEmail().equals(email)){
@@ -107,14 +112,11 @@ public class UserService implements IUserService {
             }
         }
         throw new ErroreUtenteInesistenteException();
-    }
-    // TODO
-    public List<User> getAllRegisteredUsers() {
-        return new ArrayList<>();
-    }
+    }        
 
     // TODO
-    private Set<User> getUtentiRegistrati() {
-        return null;
+    @Override
+    public List<User> getUtentiRegistrati() {
+        return listaUtentiRegistrati;
     }
 }

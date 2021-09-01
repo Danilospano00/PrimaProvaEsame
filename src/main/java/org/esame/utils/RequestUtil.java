@@ -1,5 +1,6 @@
 package org.esame.utils;
 
+import org.esame.models.dtos.MessageDTO;
 import org.esame.models.dtos.UserDTO;
 import spark.Request;
 
@@ -15,6 +16,12 @@ public class RequestUtil {
         return result;
     }
 
+
+    public static MessageDTO getMessageDTOFromRequest(Request request) {
+        MessageDTO result = new MessageDTO();
+        result.setTesto(request.queryParams("testo"));
+        return result;
+    }
     public static String getQueryUsername(Request request) {
         return request.queryParams("username");
     }
@@ -31,6 +38,9 @@ public class RequestUtil {
         return request.session().attribute("locale");
     }
 
+    public static UserDTO getSessionCurrentUser(Request request) {
+        return request.session().attribute("currentUser");
+    }
 
     public static String getSessionJwtToken(Request request) {
         if (request.session().attribute("jwtToken")!=null)

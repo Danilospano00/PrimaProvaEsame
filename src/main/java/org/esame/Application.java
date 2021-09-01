@@ -3,6 +3,7 @@ package org.esame;
 
 import org.esame.controllers.IndexController;
 import org.esame.controllers.LoginController;
+import org.esame.controllers.MessageController;
 import org.esame.controllers.UserController;
 import org.esame.utils.Path;
 import org.esame.utils.ViewUtil;
@@ -25,7 +26,6 @@ public class Application {
     public static void main(String[] args) {
 
         appConfig();
-
         staticFiles.location("/public");
         staticFiles.expireTime(600L);
         enableDebugScreen();
@@ -33,10 +33,20 @@ public class Application {
         get(Path.Web.BASE_INDEX,            LoginController.serveLoginPage);
         get(Path.Web.LOGIN,                 LoginController.serveLoginPage);
         get(Path.Web.INDEX,                 IndexController.serveIndexPage);
+        get(Path.Web.REGISTER,              UserController.register);
+        post(Path.Web.REGISTER,             UserController.handleRegisterPost);
 
-        get("/register/",              UserController.register);
-        post("/register/",             UserController.handleRegisterPost);
+       
+        get(Path.Web.getALL_PUBLIC_MESSAGES(),       MessageController.handleGetAllMessage);
+        get(Path.Web.getALL_YOUR_MESSAGES(),       MessageController.handlegetAllYoursMessage);
+        get(Path.Web.getALL_USER_MESSAGES(),       MessageController.handlegetAllUserMessage);
+        get(Path.Web.getADD_MESSAGE(),               MessageController.handleGetPageAddNewMessage);
+        post(Path.Web.getADD_MESSAGE(),               MessageController.handleAddNewMessage);
+        post(Path.Web.getADD_MESSAGE(),               MessageController.handleAddNewMessage);
+        get(Path.Web.getREMOVE_MESSAGE(),               MessageController.handleDeleteRemoveMessage);
 
+        post(Path.Web.LOGIN,                LoginController.handleLoginPost);
+        post(Path.Web.LOGOUT,               LoginController.handleLogoutPost);
         get("*",                       ViewUtil.notFound);
     }
 

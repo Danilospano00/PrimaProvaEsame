@@ -85,7 +85,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -93,7 +92,6 @@ public class User implements Serializable {
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         return result;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -111,5 +109,8 @@ public class User implements Serializable {
             return false;
         return true;
     }
+
+
+    
 
   }

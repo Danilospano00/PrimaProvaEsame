@@ -7,16 +7,16 @@
     <div class="row-3">
         #if($currentUser)
             <div class="col">
-                <a href="$WebPath.getADD_REMINDER()">Pubblica un Post</a>
+                <a href="$WebPath.getADD_MESSAGES()">Pubblica un Post</a>
             </div>
 
             <div class="col">
-                <a href="$WebPath.getALL_PUBLIC_REMINDERS()?title=Tutti i Post pubblici&type=all">Tutti i Post pubblici</a>
+                <a href="$WebPath.getALL_PUBLIC_MESSAGE()">Tutti i Post pubblici</a>
             </div>
 
 
             <div class="col">
-                <a href="$WebPath.getALL_YOUR_REMINDERS()?title=Tutti i tuoi Post&type=yours">Tutti i tuoi Post</a>
+                <a href="$WebPath.getALL_YOUR_REMINDERS()">Tutti i tuoi Post</a>
             </div>
         #end
     </div>
