@@ -8,16 +8,16 @@
             <td>
             <label>Testo del Post</label>
             ##il punto esclamativo serve a dire fallo solo se non è null
-                <textarea name="testo" rows="4" cols="50" placeholder="testo del post">$!reminderDto.testo</textarea>
+                <textarea name="testo" rows="4" cols="50" placeholder="testo del post">$!messageDto.testo</textarea>
             </td>
         </tr>
         <tr>
         </tr>
-        #if($reminderDto.id)
+        #if($messageDto.id)
             <tr>
                 <td>
                 <label>Attivo</label>
-                    <input type="checkbox" name="attivo" value="value="$!reminderDto.attivo"">
+                    <input type="checkbox" name="attivo" value="value="$!messageDto.attivo"">
                 </td>
             </tr>
         #end
