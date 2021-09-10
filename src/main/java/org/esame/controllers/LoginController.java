@@ -1,6 +1,9 @@
 package org.esame.controllers;
 
 
+import org.esame.models.dtos.UserDTO;
+import org.esame.services.PortalService;
+import org.esame.services.interfaces.IPortalService;
 import org.esame.utils.Path;
 import org.esame.utils.ViewUtil;
 import spark.Request;
@@ -35,7 +38,10 @@ public class LoginController {
      * Esegue il redirect sulla home page se non vi sono errori.
      */
     public static Route handleLoginPost = (Request request, Response response) -> {
-
+        IPortalService portalService = PortalService.getInstance();
+        UserDTO userDTO = portalService.login(request.queryParams("username"), request.queryParams("password"));
+        if (userDTO!=null)
+            request.session().attribute("currentUser", userDTO);
         Map<String, Object> model = new HashMap<>();
 
         return ViewUtil.render(request, model, Path.Template.INDEX);

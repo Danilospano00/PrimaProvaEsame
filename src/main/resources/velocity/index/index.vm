@@ -3,20 +3,20 @@
     <h1>$msg.get("INDEX_HEADING")</h1>
     <h2></h2>
     <p>$msg.get("INDEX_PASSWORD_INFO")</p>
-    <h2></h2>
+    <h2>$currentUser.getLastNameAndFirstName()</h2>
     <div class="row-3">
         #if($currentUser)
             <div class="col">
-                <a href="$WebPath.getADD_MESSAGES()">Pubblica un Post</a>
+                <a href="/message/">Pubblica un Post</a>
             </div>
 
             <div class="col">
-                <a href="$WebPath.getALL_PUBLIC_MESSAGE()">Tutti i Post pubblici</a>
+                <a href="">Tutti i Post pubblici</a>
             </div>
 
 
             <div class="col">
-                <a href="$WebPath.getALL_YOUR_REMINDERS()">Tutti i tuoi Post</a>
+                <a href="">Tutti i tuoi Post</a>
             </div>
         #end
     </div>

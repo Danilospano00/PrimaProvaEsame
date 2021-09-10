@@ -39,8 +39,6 @@
     #end
     #if($currentUser)
         <input type="hidden" value="$currentUser.username" id="currentUsername"/>
-        <input type="hidden" value="$jwtToken" id="jwtToken"/>
-        <div>Utente: $currentUser.lastNameAndFirstName</div>
     #end
     <div id="content">
         $bodyContent

@@ -5,6 +5,11 @@ import org.esame.controllers.IndexController;
 import org.esame.controllers.LoginController;
 import org.esame.controllers.MessageController;
 import org.esame.controllers.UserController;
+import org.esame.exceptions.ErroreUtenteGiaEsistenteException;
+import org.esame.models.dtos.UserDTO;
+import org.esame.services.PortalService;
+import org.esame.services.UserService;
+import org.esame.services.interfaces.IUserService;
 import org.esame.utils.Path;
 import org.esame.utils.ViewUtil;
 import org.slf4j.Logger;
@@ -55,7 +60,14 @@ public class Application {
      * Defininsce la configurazione per:
      */
     private static void appConfig() {
+        PortalService portalService = PortalService.getInstance();
+        IUserService userService = portalService.getUserService();
+        try {
+            UserDTO userDTO = new UserDTO("Remo", "Candeli", "remo", "remo.candeli@gmail.com");
+            userDTO.setPassword("protocollo");
+            userService.registraUtente(userDTO);
+        } catch (ErroreUtenteGiaEsistenteException e) {
 
-
+        }
     }
 }
