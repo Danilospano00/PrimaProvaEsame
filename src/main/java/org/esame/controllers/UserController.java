@@ -48,7 +48,9 @@ public class UserController {
         model.put("userDto", userDTO);
         try {
             portalService.getUserService().registraUtente(userDTO);
+            System.out.println(userDTO);
         } catch(ErroreUtenteGiaEsistenteException e) {
+            System.err.println("Errore" + e.getMessage());
             errorMessageDTO = new ErrorMessageDTO("Utente", "utente");
             model.put("errorMessage", errorMessageDTO);
             return ViewUtil.render(request, model, Path.Template.REGISTER);

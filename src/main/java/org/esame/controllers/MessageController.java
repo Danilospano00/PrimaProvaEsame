@@ -25,7 +25,7 @@ public class MessageController {
     
     private static final IPortalService portalService = PortalService.getInstance();
     
-    UserDTO user1DTO = new UserDTO("Danilo", "Spanò", "danilo", "danilo.spano@gmail.com").setPassword("password");
+    UserDTO user1DTO = new UserDTO("Danilo", "Spanò", "danilo", "danilo.spano@gmail.com").setPassword("danilo");
 
 
     public static Route handleGetAllMessage = (Request request, Response response) -> {
