@@ -60,10 +60,9 @@ public class MessageController {
         UserDTO utenteCorrenteDTO = RequestUtil.getSessionCurrentUser(request);
         User utenteProprietario = portalService.getUserService().cercaUtentePerEmail(utenteCorrenteDTO.getEmail());
         MessageDTO messageDto = RequestUtil.getMessageDTOFromRequest(request);
-        model.put("messageDto", messageDto);
-
         portalService.getMessageService().nuovoMessage(utenteProprietario, messageDto.getTesto());
-
+        model.put("messageDto", new MessageDTO());
+        model.put("simpleMessage", new SimpleMessageDTO("Post Registrato correttamente!", ""));
         return ViewUtil.render(request, model, Path.Template.MESSAGE_NEW);
     };
 

@@ -14,7 +14,7 @@ import org.esame.services.interfaces.IMessageService;
 import org.esame.services.interfaces.IPortalService;
 import org.esame.services.interfaces.IUserService;
 
-public class PortalService implements IPortalService{
+public class PortalService implements IPortalService {
 
     private static PortalService portalService;
     private Set<User> utentiRegistrati;

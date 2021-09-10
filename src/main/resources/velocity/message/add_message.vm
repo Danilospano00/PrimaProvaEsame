@@ -1,0 +1,24 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<form id="reminderForm" action="/message/" method="post">
+
+    <p>Inserimento nuovo Post</p>
+    <table>
+        <tr>
+            <td>
+            <label>Testo del Post</label>
+            ##il punto esclamativo serve a dire fallo solo se non è null
+                <textarea name="testo" rows="4" cols="50" placeholder="testo del post" required>$!messageDto.testo</textarea>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Salva">
+</form>
+
+    #if($errorMessage)
+        <p class="bad notification">Errore: $errorMessage.message</p>
+    #end
+    #if($simpleMessage)
+        <p class="notification">$simpleMessage.message</p>
+    #end
+#end
