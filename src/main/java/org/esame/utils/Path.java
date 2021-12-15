@@ -70,9 +70,6 @@ public class Path {
             return SF_DISCONNECTION;
         }
 
-        public static String getFILTER_MESSAGE() {
-            return ADD_MESSAGES;
-        }
 
 
         public static String getREGISTER() {
@@ -86,8 +83,8 @@ public class Path {
         public final static String INDEX = "/velocity/index/index.vm";
         public final static String LOGIN = "/velocity/login/login.vm";
         public final static String REGISTER = "/velocity/register/register.vm";
-        public final static String MESSAGE_ALL = "/velocity/message/list_message.vm";
-        public final static String MESSAGE_NEW = "/velocity/message/add_message.vm";
+        public final static String MESSAGE_ALL = "/velocity/Message/lista_messaggi.vm";
+        public final static String MESSAGE_NEW = "/velocity/Message/add_message.vm";
         public static final String NOT_FOUND = "/velocity/notFound.vm";
     }
 

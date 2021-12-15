@@ -2,3 +2,7 @@
 #* @vtlvariable name="WebPath" type="org.esame.utils.Path.Web" *#
 #* @vtlvariable name="Utils" type="org.esame.utils.CustomUtils.Utils" *#
 #* @vtlvariable name="msg" type="org.esame.utils.MessageBundle" *#
+#* @vtlvariable name="messageDto" type="org.esame.models.dtos.MessageDTO" *#
+#* @vtlvariable name="messageDtos" type="java.lang.Iterable<org.corso.models.dtos.MessageDTO>" *#
+#* @vtlvariable name="errorMessage" type="org.esame.models.dtos.ErrorMessageDTO" *#
+#* @vtlvariable name="simpleMessage" type="org.esame.models.dtos.SimpleMessageDTO" *#

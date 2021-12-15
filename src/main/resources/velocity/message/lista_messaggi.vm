@@ -1,0 +1,36 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<h1>Tutti i messaggi</h1>
+<div>
+    <table class="table table-dark table-hover">
+        <tr>
+            <th>Testo</th>
+            <th>Autore</th>
+        </tr>
+        <tr>
+                <td>Buona fortuna!</td>
+                <td>Piccardo Giorgio</td>
+            </tr>
+            <tr>
+                <td>Cerco casa in affitto a Roma</td>
+                <td>Pani Matteo</td>
+            </tr>
+            <tr>
+                <td>A che ora abbiamo lezione?</td>
+                <td>Rossi Mario</td>
+            </tr>
+        #foreach($item in $!messageDtos)
+            <tr>
+                <td>$item.getTesto()</td>
+                <td>$currentUser.getLastNameAndFirstName()</td>
+            </tr>
+        #end
+    </table>
+    #if($notificationMessage)
+        <p class="notification">$notificationMessage.message</p>
+    #end
+    #if($errorMessage)
+        <p class="ui-state-error">$errorMessage.message</p>
+    #end
+</div>
+#end

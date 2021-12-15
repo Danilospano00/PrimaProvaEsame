@@ -12,6 +12,7 @@ public class MessageService implements IMessageService{
 
     private static MessageService messageService;
 
+
     public static MessageService getInstance() {
 		if (messageService==null) {
 			messageService = new MessageService();

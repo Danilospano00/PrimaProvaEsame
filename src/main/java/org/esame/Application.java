@@ -6,11 +6,14 @@ import org.esame.controllers.LoginController;
 import org.esame.controllers.MessageController;
 import org.esame.controllers.UserController;
 import org.esame.exceptions.ErroreUtenteGiaEsistenteException;
+import org.esame.models.User;
 import org.esame.models.dtos.UserDTO;
+import org.esame.services.MessageService;
 import org.esame.services.PortalService;
 import org.esame.services.UserService;
 import org.esame.services.interfaces.IUserService;
 import org.esame.utils.Path;
+import org.esame.utils.UserTransformer;
 import org.esame.utils.ViewUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +33,7 @@ public class Application {
 
     public static void main(String[] args) {
 
-        appConfig();
+       // appConfig();
         staticFiles.location("/public");
         staticFiles.expireTime(600L);
         enableDebugScreen();
@@ -47,7 +50,7 @@ public class Application {
         get(Path.Web.getALL_USER_MESSAGES(),       MessageController.handlegetAllUserMessage);
         get(Path.Web.getADD_MESSAGE(),               MessageController.handleGetPageAddNewMessage);
         post(Path.Web.getADD_MESSAGE(),               MessageController.handleAddNewMessage);
-        post(Path.Web.getADD_MESSAGE(),               MessageController.handleAddNewMessage);
+        //post(Path.Web.getADD_MESSAGE(),               MessageController.handleAddNewMessage);
         get(Path.Web.getREMOVE_MESSAGE(),               MessageController.handleDeleteRemoveMessage);
 
         post(Path.Web.LOGIN,                LoginController.handleLoginPost);
@@ -63,9 +66,13 @@ public class Application {
         PortalService portalService = PortalService.getInstance();
         IUserService userService = portalService.getUserService();
         try {
-            UserDTO userDTO = new UserDTO("Remo", "Candeli", "remo", "remo.candeli@gmail.com");
-            userDTO.setPassword("protocollo");
-            userService.registraUtente(userDTO);
+            UserDTO userDanilo = new UserDTO("Danilo", "Spanò", "danilo", "danilospano00@gmail.com");
+            userDanilo.setPassword("danilo");
+            userService.registraUtente(userDanilo);
+            User user = UserTransformer.fromDTO(userDanilo);
+            MessageService.getInstance().nuovoMessage(user, "secondo messaggio");
+
+
         } catch (ErroreUtenteGiaEsistenteException e) {
 
         }

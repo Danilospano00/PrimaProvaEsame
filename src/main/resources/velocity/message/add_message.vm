@@ -1,0 +1,17 @@
+#parse("/velocity/layout.vm")
+#@mainLayout()
+<form id="reminderForm" action="/message/" method="post">
+    <div class="form-group">
+        <label id="titleAddPostForm">Testo del Post</label>
+        <textarea name="testo" class="form-control" id="exampleFormControlTextarea1" rows="3">$!messageDto.testo</textarea>
+    </div>
+    <p id="testoTrasparente">nwiondion</p>
+    <input type="submit" value="Salva" class="btn btn-dark">
+</form>
+#if($errorMessage)
+    <p class="bad notification">Errore: $errorMessage.message</p>
+#end
+#if($simpleMessage)
+    <p class="notification">$simpleMessage.message</p>
+#end
+#end

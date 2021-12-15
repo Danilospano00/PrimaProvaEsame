@@ -3,18 +3,16 @@ package org.esame.models.dtos;
 public class MessageDTO {
     
 
-  
     private String testo;
-    private UserDTO autore;
+
     
 
     
     public MessageDTO() {
     }
 
-    public MessageDTO(String testo, UserDTO autore) {
+    public MessageDTO(String testo) {
         this.testo = testo;
-        this.autore = autore;
     }
     
     public String getTesto() {
@@ -23,12 +21,5 @@ public class MessageDTO {
     public void setTesto(String testo) {
         this.testo = testo;
     }
-    public UserDTO getAutore() {
-        return autore;
-    }
-    public void setAutore(UserDTO autore) {
-        this.autore = autore;
-    }
 
-    
 }

@@ -30,14 +30,14 @@ public class MessageController {
 
     public static Route handleGetAllMessage = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
-        model.put("messageDto", getAllMessage(request));
+        model.put("messageDtos", getAllMessage(request));
         return ViewUtil.render(request, model, Path.Template.MESSAGE_ALL);
     };
 
 
     public static Route handlegetAllUserMessage = (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
-        model.put("messageDto", getAllUserMessage(request));
+        model.put("messageDtos", getAllUserMessage(request));
         return ViewUtil.render(request, model, Path.Template.MESSAGE_ALL);
     };
 
@@ -60,10 +60,9 @@ public class MessageController {
         UserDTO utenteCorrenteDTO = RequestUtil.getSessionCurrentUser(request);
         User utenteProprietario = portalService.getUserService().cercaUtentePerEmail(utenteCorrenteDTO.getEmail());
         MessageDTO messageDto = RequestUtil.getMessageDTOFromRequest(request);
-        model.put("messageDto", messageDto);
-
         portalService.getMessageService().nuovoMessage(utenteProprietario, messageDto.getTesto());
-
+        model.put("messageDto", new MessageDTO());
+        model.put("simpleMessage", new SimpleMessageDTO("Post Registrato correttamente!", ""));
         return ViewUtil.render(request, model, Path.Template.MESSAGE_NEW);
     };
 

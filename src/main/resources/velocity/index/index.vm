@@ -1,23 +1,17 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
-    <h1>$msg.get("INDEX_HEADING")</h1>
-    <h2></h2>
-    <p>$msg.get("INDEX_PASSWORD_INFO")</p>
-    <h2>$currentUser.getLastNameAndFirstName()</h2>
-    <div class="row-3">
-        #if($currentUser)
-            <div class="col">
-                <a href="/message/">Pubblica un Post</a>
-            </div>
-
-            <div class="col">
-                <a href="">Tutti i Post pubblici</a>
-            </div>
-
-
-            <div class="col">
-                <a href="">Tutti i tuoi Post</a>
-            </div>
-        #end
-    </div>
+<div class="indexTitle">
+    <p class="benvenuto">$msg.get("INDEX_HEADING")</p>
+    <p class="benvenuto">$currentUser.getLastNameAndFirstName()</p>
+</div>
+<div class="row-3">
+    #if($currentUser)
+        <button type="button" class="btn btn-dark">
+            <a href="$WebPath.getADD_MESSAGE()" style="color:white;  text-decoration: none;">Pubblica un Post</a>
+        </button>
+        <button type="button" class="btn btn-dark">
+            <a href="$WebPath.getALL_PUBLIC_MESSAGES()" style="color:white;  text-decoration: none;">Tutti i Post pubblici</a>
+        </button>
+    #end
+</div>
 #end

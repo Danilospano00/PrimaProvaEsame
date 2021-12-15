@@ -1,23 +1,46 @@
 #parse("/velocity/layout.vm")
 #@mainLayout()
-<form id="registerForm" action="/register/" method="post">
-
-    <p>Registrazione Utente</p>
+<form id="loginForm" action="/register/" method="post">
+    <p id="registrazioneUtente">Registrazione Utente</p>
     <label>Nome</label>
-    <input type="text" name="firstname" placeholder="nome utente" value="$!userDto.firstName" required><br>
+    <input
+        type="text"
+        name="firstname"
+        placeholder="Nome utente"
+        value="$!userDto.firstName"
+        required="required"><br>
     <label>Cognome</label>
-    <input type="text" name="lastname" placeholder="cognome utente" value="$!userDto.lastName" required><br>
-    <label>Indirizzo Email</label>
-    <input type="text" name="email" placeholder="indirizzo email" value="$!userDto.email" required><br>
-    <label>UserName</label>
-    <input type="text" name="username" placeholder="Username" value="$!userDto.username" required><br>
+    <input
+        type="text"
+        name="lastname"
+        placeholder="Cognome utente"
+        value="$!userDto.lastName"
+        required="required"><br>
+    <label >Indirizzo Email</label>
+    <input
+        type="text"
+        name="email"
+        placeholder="Indirizzo email"
+        value="$!userDto.email"
+        required="required"><br>
+    <label>Username</label>
+    <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        value="$!userDto.username"
+        required="required"><br>
     <label>Password</label>
-    <input type="password" name="password" placeholder="password" value="" required><br>
-
+    <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value="$!userDto.password"
+        required="required"><br>
     #if($errorMessage)
         <p class="bad notification">Errore: $errorMessage.message</p>
     #end
 
-    <input type="submit" value="Registra">
+    <input type="submit" value="Registrati">
 </form>
 #end
